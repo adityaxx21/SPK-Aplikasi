@@ -1,0 +1,215 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SPK Laptop</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <!-- <link rel="stylesheet" href="C:/Users/Prozire/OneDrive/Python/SPK_Aplikasi/Template/static/css/main.css"> -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider.css'%}">
+    <script src="{% static 'jss/slider.js'%}"></script>
+
+
+
+</head>
+
+<body>
+    {% csrf_token %}
+    <div class="app-container app-theme-white body-tabs-shadow  fixed-header">
+        <div class="app-header header-shadow bg-plum-plate header-text-light">
+            <div class="app-header__menu">
+                <span>
+                    <button type="button"
+                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <ul class="header-menu nav">
+                        <li class="nav-item">
+                            <a href="index" class="nav-link" id="butt1">
+                                <i class="nav-link-icon fa fa-database"> </i>
+                                Hasil Rekomendasi
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="index2" class="nav-link" id="butt3">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Pengujian Perubahan Kriteria
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="index1" class="nav-link" id="butt3">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Pengujian Jumlah Data
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="index3" class="nav-link" id="butt3">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Pengujian Perbandingan Dengan AHP
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="app-main">
+            <div class="app-main__outer">
+                {% comment %} Page 3 calculation results {% endcomment %}
+                <div class="app-main__inner" id="page_3">
+                    <div class="app-page-title">
+                        <div class="page-title-actions center">
+                            <h2> Pengujian Perbandingan Dengan Meetode AHP</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            {% for i in loopeng %}
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Akurasi </h5>            
+                                        <table class="mb-0 table ">
+                                            <tr>
+                                                <td>
+                                                    Jumlah Data Lolos
+                                                </td>
+                                                <td>
+                                                    {{i.0}}
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Akurasi
+                                                </td>
+                                                <td>
+                                                    {{i.1}} %
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Kecepatan Ekseskusi
+                                                </td>
+                                                <td>
+
+                                                    {{i.2}}
+                                                </td>
+
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                            
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card" >
+                                    <div class="card-body">
+                                        <h5 class="card-title" >Akurasi </h5>
+                                        <canvas id="myChart" style="height: 100px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                var ctx = document.getElementById('myChart').getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['Data-100', 'Data-200', 'Data-300', 'Data-400', 'Data-500', 'Data-600','Data-700'],
+                                        datasets: [{
+                                            label: 'Akurasi (%)',
+                                            data: {{y}},
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)',
+                                                'rgba(255, 127, 64, 0.2)',
+                                                'rgba(255, 127, 64, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)',
+                                                'rgba(255, 127, 64, 1)',
+                                                'rgba(255, 127, 64, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+
+
+
+                            <!-- <div class="card mb-3 widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Persentase Laptop Lolos Kriteria</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <div class="widget-numbers text-danger">{{accuration}}%</div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-progress-wrapper">
+                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{accuration}}" aria-valuemin="0" aria-valuemax="100" style="width: {{accuration}}%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                        </div>
+                    </div>
+                </div>
+                {% comment %} its end{% endcomment %}
+                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'css/assets/scripts/main.js' %}"></script>
+    </div>
+    </div>
+</body>
+
+</html>

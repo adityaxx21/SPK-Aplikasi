@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>val demo</title>
+  <style>
+  p {
+    color: red;
+    margin: 4px;
+  }
+  b {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<p></p>
+ 
+<select id="single">
+  <option value="0">Single</option>
+  <option value="1">Single2</option>
+  <option value="2">Single3</option>
+</select>
+<select id="single1">
+  <option value="0">Single</option>
+  <option value="1">Single2</option>
+</select>
+<select id="single2">
+  <option value="0">Single</option>
+  <option value="1">Single2</option>
+</select>
+<select id="single3">
+  <option value="0">Single</option>
+  <option value="1">Single2</option>
+</select>
+<select id="single4">
+  <option value="0">Single</option>
+  <option value="1">Single2</option>
+</select>
+
+<select id="double">
+    <option >Single</option>
+    <option >Single2</option>
+  </select>
+ 
+<select id="multiple" multiple="multiple">
+  <option selected="selected">Multiple</option>
+  <option>Multiple2</option>
+  <option selected="selected">Multiple3</option>
+</select>
+ 
+<script>
+function displayVals() {
+   singleValues = $( "#single" ).val();
+  var multipleValues = $( "#multiple" ).val() || [];
+  stepVal1 = [[],[0,1,0,1,0],[1,1,1,1,1]];
+  // When using jQuery 3:
+  // var multipleValues = $( "#multiple" ).val();
+  $( "p" ).html( "<b>Single:</b> " + singleValues +
+    " <b>Multiple:</b> " + multipleValues.join( ", " ) );
+    document.getElementById("double").selectedIndex = stepVal1[singleValues][0];
+    document.getElementById("single1").selectedIndex = stepVal1[singleValues][1];
+    document.getElementById("single2").selectedIndex = stepVal1[singleValues][2];
+    document.getElementById("single3").selectedIndex = stepVal1[singleValues][3];
+    document.getElementById("single4").selectedIndex = stepVal1[singleValues][4];
+}
+ 
+$( "select" ).change( displayVals );
+displayVals();
+</script>
+ 
+</body>
+</html>

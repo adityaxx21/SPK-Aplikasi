@@ -1,0 +1,1025 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SPK Laptop</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <!-- <link rel="stylesheet" href="C:/Users/Prozire/OneDrive/Python/SPK_Aplikasi/Template/static/css/main.css"> -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slider.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery.toast.css' %}" />
+    <script src="{% static 'jss/slider.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#butt1").click(function () {
+                $("#page_1").show();
+                $("#page_2").hide();
+                $("#page_3").hide();
+            });
+            $("#butt2").click(function () {
+                $("#page_1").hide();
+                $("#page_2").show();
+                $("#page_3").hide();
+            });
+            $("#butt3").click(function () {
+                $("#page_1").hide();
+                $("#page_2").hide();
+                $("#page_3").show();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+    <script type="text/javascript" src="{% static 'js/jquery.toast.js' %}"></script>
+
+
+    <form action="index" method="POST">
+        {% csrf_token %}
+
+        <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+            <div class="app-header header-shadow bg-plum-plate header-text-light">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button"
+                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                <div class="app-header__content">
+                    <div class="app-header-left">
+                        <ul class="header-menu nav">
+                            <li class="nav-item">
+                                <a class="nav-link" id="butt1">
+                                    <i class="nav-link-icon fa fa-database"> </i>
+                                    Hasil Rekomendasi
+                                </a>
+                            </li>
+                            <li class="btn-group nav-item">
+                                <a class="nav-link" id="butt2">
+                                    <i class="nav-link-icon fa fa-edit"></i>
+                                    Ubah Prioritas
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a class="nav-link" id="butt3">
+                                    <i class="nav-link-icon fa fa-cog"></i>
+                                    Hasil Perhitungan
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="index2" class="nav-link" id="">
+                                    <i class="nav-link-icon fa fa-cog"></i>
+                                    Pengujian Perubahan Kriteria
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="index1" class="nav-link" id="">
+                                    <i class="nav-link-icon fa fa-cog"></i>
+                                    Pengujian Jumlah Data
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="index3" class="nav-link" id="">
+                                    <i class="nav-link-icon fa  fa-cog"></i>
+                                    Pengujian Perbandingan Dengan AHP
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-main">
+                <div class="app-sidebar sidebar-shadow bg-plum-plate sidebar-text-light">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                    data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button"
+                                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading">Rekomendasi Sesuai Kebutuhan</li>
+                                <li>
+                                    <select type="select" id="rekom" name="cpu" class="custom-select">
+                                        <option selected value="0">--Default--</option>
+                                        <option value="1">Kebutuhan Pendidikan</option>
+                                        <option value="2">Kebutuhan Kantor</option>
+                                        <option value="3">Kebutuhan Video Editing</option>
+                                        <option value="4">Kebutuhan Photo Editing</option>
+                                        <option value="5">Kebutuhan Gaming</option>
+                                    </select>
+                                </li>
+                                <script>
+                                    function displayVals() {
+                                       singleValues = $( "#rekom" ).val();
+                                     
+                                      stepVal1 = [[],[1,1,2,1,2,5700000],[1,1,1,1,1,6000000],[5,2,2,4,3,11000000],[20,3,4,4,3,8000000],[60,10,2,4,4,16000000]];
+                                      // When using jQuery 3:
+                                      // var multipleValues = $( "#multiple" ).val();
+                                        document.getElementById("cpu").selectedIndex = stepVal1[singleValues][0];
+                                        document.getElementById("gpu").selectedIndex = stepVal1[singleValues][1];
+                                        document.getElementById("disp").selectedIndex = stepVal1[singleValues][2];
+                                        document.getElementById("ram").selectedIndex = stepVal1[singleValues][3];
+                                        document.getElementById("store").selectedIndex = stepVal1[singleValues][4];
+                                        document.getElementById("price").value = stepVal1[singleValues][5];
+                                    }                   
+                                    $( "select" ).change( displayVals );
+                                    displayVals();
+                                    </script>
+                                <li class="app-sidebar__heading">Processor</li>
+                                <li>
+                                    <select type="select" id="cpu" name="cpu" class="custom-select">
+                                        <option selected value="0">--Default--</option>
+                                        {% for i in seleksi2%}
+                                        {%if i.CPU != ""%}
+                                        <option value="{{i.scr_cpu}}">{{i.CPU}}</option>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </select>
+                                </li>
+                                <li class="app-sidebar__heading">Graphics</li>
+                                <li>
+                                    <select type="select" id="gpu" name="gpu" class="custom-select">
+                                        <option selected value="0">--Default--</option>
+                                        {% for i in seleksi2%}
+                                        {%if i.GPU != ""%}
+                                        <option value="{{i.scr_gpu}}">{{i.GPU}}</option>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </select>
+                                </li>
+                                <li class="app-sidebar__heading">Display</li>
+                                <li>
+                                    <select type="select" id="disp" name="disp" class="custom-select">
+                                        <option selected value="0">--Default--</option>
+                                        {% for i in seleksi2%}
+                                        {%if i.Display != ""%}
+                                        <option value="{{i.scr_display}}">{{i.Display}}</option>
+                                        {%endif%}
+                                        5{{.Display}}
+                                        {%endfor%}
+                                    </select>
+                                </li>
+                                <li class="app-sidebar__heading">RAM</li>
+                                <li>
+                                    <select type="select" id="ram" name="ram" class="custom-select" value="0">
+                                        <option selected value="0">--Default--</option>
+                                        {% for i in seleksi2%}
+                                        {%if i.RAM != ""%}
+                                        <option value="{{i.scr_ram}}">{{i.RAM}}</option>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </select>
+                                </li>
+                                <li class="app-sidebar__heading">Penyimpanan</li>
+                                <li>
+                                    <select type="select" id="store" name="store" class="custom-select">
+                                        <option selected value="0">--Default--</option>
+                                        {% for i in seleksi2%}
+                                        {%if i.storage != ""%}
+                                        <option value="{{i.scr_str}}">{{i.storage}}</option>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </select>
+                                </li>
+                                <li class="app-sidebar__heading">Harga</li>
+                                <li>
+                                    <input value="0" name="price" id="price" placeholder="Harga" class="form-control">
+                                </li>
+                                <li class="app-sidebar__heading"></li>
+                                <li>
+                                    <input class="mb-2 mr-2 btn btn-primary btn-lg btn-block" type="submit">
+                                    </input>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="app-main__outer">
+                    {% comment %} Page 1 Result {% endcomment %}
+                    <div class="app-main__inner" id="page_1">
+                        <div class="app-page-title">
+                            <div class="page-title-actions center">
+                                <h2> Sistem Pendukung Keputusan Rekomendasi Laptop</h2>
+                            </div>
+                            <div class="page-title-wrapper">
+
+                                <div class="page-title-heading">
+
+                                    <div class="page-title-icon">
+                                        <i class="pe-7s-search icon-gradient bg-mean-fruit">
+                                        </i>
+                                    </div>
+                                    <div>Search result
+                                        <div class="page-title-subheading">There is {{lent}} search result
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for i in sortr %}
+                            <div class="col-md-3">
+                                <div class="main-card mb-4 card">
+                                    <div class="card">
+                                        <img src="https://i2.wp.com/laptopmedia.com/wp-content/uploads/2020/03/1-2.png?fit=300%2C207&ssl=1"
+                                            alt="Avatar" style="width:100%">
+                                        <div class="container">
+                                            <div class="mt-2">
+                                                <b>
+                                                    <h5>{{i.Name}}</h5>
+                                                </b>
+                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">CPU </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">{{ i.CPU }}</h6>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3"> GPU </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">{{ i.GPU }}</h6>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Display </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">{{ i.Display }}</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">RAM </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">{{ i.ram }}</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Storange </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">{{ i.storage }}</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Price (New) </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Rp. {{ i.harga_baru }}</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Price (Second) </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3">Rp. {{ i.harga_bekas }}</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3"><a href="{{ i.url_baru }}">Baru</a></h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mt-2 mb-3"><a href="{{ i.url_bekas }}">Bekas</a></h6>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% comment %} Page 2 Input Data {% endcomment %}
+                    <div class="app-main__inner" style="display: none;" id="page_2">
+                        <div class="app-page-title">
+                            <div class="page-title-actions center">
+                                <h2> Ubah Prioritas Sistem Pendukung Keputusan Rekomendasi Laptop</h2>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-content">
+
+                            <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ubah Kriteria</h5>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Processor</td>
+                                                            <td style="float:right;">Grafic Card</td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- <input  type="text" id="InputK" value="1" style="width: 20%; "> -->
+                                                    <input type="text" name="P2" value="1" style="width: 100%; ">
+
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Processor</td>
+                                                            <td style="float:right;">Display</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P3" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Processor</td>
+                                                            <td style="float:right;">Memory</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P4" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Processor</td>
+                                                            <td style="float:right;">Penyimpanan</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P5" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Processor</td>
+                                                            <td style="float:right;">Price</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P6" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Grafic Card</td>
+                                                            <td style="float:right;">Display</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P7" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Grafic Card</td>
+                                                            <td style="float:right;">Memory</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P8" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Grafic Card</td>
+                                                            <td style="float:right;">Penyimpanan</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P9" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Grafic Card </td>
+                                                            <td style="float:right;">Price</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P10" value="1">
+                                                    <input type="range" name="pty" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Display</td>
+                                                            <td style="float:right;">Memory</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P11" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Display</td>
+                                                            <td style="float:right;">Penyimpanan</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P12" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Display</td>
+                                                            <td style="float:right;">Price</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P13" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Memory</td>
+                                                            <td style="float:right;">Penyimpanan</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P14" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Memory</td>
+                                                            <td style="float:right;">Price</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P15" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="card box">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Penyimpanan</td>
+                                                            <td style="float:right;">Price</td>
+                                                        </tr>
+                                                    </table>
+                                                    <input type="text" name="P16" value="1">
+                                                    <input type="range" min="0" max="16" step="1"
+                                                        style="width: 100%; position: relative;">
+
+                                                </div>
+                                                <div class="as-console-wrapper">
+                                                    <div class="as-console"></div>
+                                                </div>
+
+                                                <button class="mt-1 btn btn-primary">Submit</button>
+                                            </div>
+                                            <script
+                                                src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                            <script>
+                                                // stepVal1 = [9, 8, 7, 6, 5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+                                                // stepVal = [0.111111111, 0.125, 0.142857143, 0.166666667, 0.2, 0.25, 0.333333333, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+                                                stepVal = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5, 0.333333333, 0.25, 0.2, 0.166666667, 0.142857143, 0.125, 0.111111111];
+                                                $('.box').each(function () {
+                                                    $(this).on('input', 'input[type="range"]', function () {
+                                                        $(this).prev('input[type=text]').val(stepVal[this.value]);
+                                                    });
+                                                });
+
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hasil Perhitungan Kriteria</h5>
+                                                <table class="mb-0 table table-bordered">
+
+                                                    {%for j in P %}
+                                                    <tr>
+                                                        {%for i in j %}
+                                                        <td>
+                                                            {{i}}
+                                                        </td>
+                                                        {%endfor%}
+                                                    </tr>
+                                                    {%endfor%}
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Keterangan </h5>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            K1 : CPU Laptop
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            K2 : GPU Laptop
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            K3 : Layar Laptop
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            K4 : RAM Laptop
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            K5 : Storage Laptop
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            K6 : Harga Laptop
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <h5></h5>
+                                                <h5 class="card-title">Catatan : </h5>
+                                                <h5 class="card-title">Jika nilai kriteria berpasangan yang diinputkan tidak memenui kondisi maka akan diubah ke dalam default sistem</h5>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    {% comment %} Page 3 calculation results {% endcomment %}
+                    <div class="app-main__inner" style="display: none;" id="page_3">
+                        <div class="app-page-title">
+                            <div class="page-title-actions center">
+                                <h2> Hitungan Manualisasi Sistem Pendukung Keputusan Rekomendasi Laptop</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Normalisasi Kriteria</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                {%for i in norAHP%}
+                                                <tr>
+                                                    {%for j in i%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+                                                {%endfor%}
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Bobot Kriteria</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                <tr>
+                                                    {%for j in wAHP%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Input User</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                <tr>
+                                                    {%for j in label%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+                                                <tr>
+                                                    {%for j in inpt_usr%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lambda AX</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                <tr>
+                                                    {%for j in lAX%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lambda Max</h5>
+                                            <table class="mb-0 table ">
+                                                <tr>
+                                                    <td>
+                                                        {{lMax}}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Consitensy Ratio </h5>
+                                            <table class="mb-0 table ">
+                                                <tr>
+                                                    <td>
+                                                        {{CR}}
+                                                    </td>
+                                                    <td>
+                                                        Passed
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Normalisasi Alternatif</h5>
+                                            <div class="scroll-area-md">
+                                                <div class="scrollbar-container ps--active-y ps">
+                                                    <table class="mb-0 table table-bordered">
+                                                        <table class="mb-0 table table-bordered">
+                                                            {%for i in norTOPSIS%}
+                                                            <tr>
+                                                                {%for j in i%}
+                                                                <td>
+                                                                    {{j}}
+                                                                </td>
+                                                                {%endfor%}
+                                                            </tr>
+                                                            {%endfor%}
+
+                                                        </table>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                            <div class="ps__thumb-x" tabindex="0"
+                                                                style="left: 0px; width: 0px;"></div>
+                                                        </div>
+                                                        <div class="ps__rail-y"
+                                                            style="top: 0px; height: 300px; right: 0px;">
+                                                            <div class="ps__thumb-y" tabindex="0"
+                                                                style="top: 0px; height: 85px;"></div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Normalisasi TOPSIS x Bobot AHP</h5>
+                                            <div class="scroll-area-md">
+                                                <div class="scrollbar-container ps--active-y ps">
+                                                    <table class="mb-0 table table-bordered">
+                                                        <table class="mb-0 table table-bordered">
+                                                            {%for i in zTopsis%}
+                                                            <tr>
+                                                                {%for j in i%}
+                                                                <td>
+                                                                    {{j}}
+                                                                </td>
+                                                                {%endfor%}
+                                                            </tr>
+                                                            {%endfor%}
+
+                                                        </table>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                            <div class="ps__thumb-x" tabindex="0"
+                                                                style="left: 0px; width: 0px;"></div>
+                                                        </div>
+                                                        <div class="ps__rail-y"
+                                                            style="top: 0px; height: 300px; right: 0px;">
+                                                            <div class="ps__thumb-y" tabindex="0"
+                                                                style="top: 0px; height: 85px;"></div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Solusi Positif Negative</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                {%for i in Spm%}
+                                                <tr>
+                                                    {%for j in i%}
+                                                    <td>
+                                                        {{j}}
+                                                    </td>
+                                                    {%endfor%}
+                                                </tr>
+                                                {%endfor%}
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Solusi Positif</h5>
+                                            <div class="scroll-area-md">
+                                                <div class="scrollbar-container ps--active-y ps">
+                                                    <table class="mb-0 table table-bordered">
+                                                        <table class="mb-0 table table-bordered">
+                                                            {%for i in Dn%}
+                                                            <tr>
+                                                                <td>
+                                                                    {{i}}
+                                                                </td>
+                                                            </tr>
+                                                            {%endfor%}
+                                                        </table>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                            <div class="ps__thumb-x" tabindex="0"
+                                                                style="left: 0px; width: 0px;"></div>
+                                                        </div>
+                                                        <div class="ps__rail-y"
+                                                            style="top: 0px; height: 300px; right: 0px;">
+                                                            <div class="ps__thumb-y" tabindex="0"
+                                                                style="top: 0px; height: 85px;"></div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Solusi Negative</h5>
+                                            <div class="scroll-area-md">
+                                                <div class="scrollbar-container ps--active-y ps">
+                                                    <table class="mb-0 table table-bordered">
+                                                        <table class="mb-0 table table-bordered">
+                                                            {%for i in Dn%}
+                                                            <tr>
+                                                                <td>
+                                                                    {{i}}
+                                                                </td>
+                                                            </tr>
+                                                            {%endfor%}
+                                                        </table>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                            <div class="ps__thumb-x" tabindex="0"
+                                                                style="left: 0px; width: 0px;"></div>
+                                                        </div>
+                                                        <div class="ps__rail-y"
+                                                            style="top: 0px; height: 300px; right: 0px;">
+                                                            <div class="ps__thumb-y" tabindex="0"
+                                                                style="top: 0px; height: 85px;"></div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hasil Penghitungan</h5>
+                                            <div class="scroll-area-md">
+                                                <div class="scrollbar-container ps--active-y ps">
+                                                    <table class="mb-0 table table-bordered">
+                                                        <tr>
+                                                            <td>Id</td>
+                                                            <td>Name</td>
+                                                            <td>CPU</td>
+                                                            <td>GPU</td>
+                                                            <td>RAM</td>
+                                                            <td>Display</td>
+                                                            <td>Price</td>
+                                                            <td>Score</td>
+                                                        </tr>
+                                                        {%for i in sortr%}
+                                                        <tr>
+                                                            <td>{{i.Id}}</td>
+                                                            <td>{{i.Name}}</td>
+                                                            <td>{{i.CPU}}</td>
+                                                            <td>{{i.GPU}}</td>
+                                                            <td>{{i.ram}}</td>
+                                                            <td>{{i.Display}}</td>
+                                                            <td>{{i.harga_baru}}</td>
+                                                            <td>{{i.Score}}</td>
+                                                        </tr>
+                                                        {%endfor%}
+                                                    </table>
+                                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                        <div class="ps__thumb-x" tabindex="0"
+                                                            style="left: 0px; width: 0px;"></div>
+                                                    </div>
+                                                    <div class="ps__rail-y"
+                                                        style="top: 0px; height: 300px; right: 0px;">
+                                                        <div class="ps__thumb-y" tabindex="0"
+                                                            style="top: 0px; height: 85px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 ">
+
+                                    <div class="card mb-3 widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Persentase Laptop Lolos Kriteria</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <div class="widget-numbers text-danger">{{accuration}}%</div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-progress-wrapper">
+                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        aria-valuenow="{{accuration}}" aria-valuemin="0"
+                                                        aria-valuemax="100" style="width: {{accuration}}%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% comment %} its end{% endcomment %}
+                        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="{% static 'css/assets/scripts/main.js' %}"></script>
+        </div>
+        </div>
+    </form>
+</body>
+
+</html>
